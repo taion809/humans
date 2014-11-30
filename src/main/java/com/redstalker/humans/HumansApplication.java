@@ -5,7 +5,9 @@ package com.redstalker.humans;
  */
 
 import com.redstalker.humans.config.Loader;
+import com.redstalker.humans.jooq.HumanDAO;
 import com.redstalker.humans.jooq.Manager;
+import com.redstalker.humans.resources.Human;
 
 public class HumansApplication {
 
@@ -16,7 +18,8 @@ public class HumansApplication {
 
     public void run(HumansConfiguration config) throws Exception {
         Manager manager = Manager.build(config.getJooq());
+        HumanDAO dao = new HumanDAO(manager);
 
-        manager.close();
+        Human.register(dao);
     }
 }
