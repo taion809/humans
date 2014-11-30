@@ -1,0 +1,5 @@
+database:
+    user: user
+    pass: pass
+    url: jdbc:postgresql://host:port/dbname
+    driver: org.postgresql.Driver
